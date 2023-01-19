@@ -53,20 +53,32 @@
 (tag-name (tag :div "asd" "dsa" (tag :br)))
 
 
-(defn match-name [expr name]
-  {:doc "check if tag name is equal to @name"}
+(defn name-is [expr name]
+  {:doc "Check if tag name is equal to @name"}
   (= (tag-name expr) name))
 
-(defn value-is [expr value]
+(defn value-is [expr value] 
+  {:doc "Check if (first) argument of expr is equal to value"}
   (let [values (tag-args expr)]
-    (if-not values
+    (if (or (= values nil) (> (count values) 1))
       false
       (= (first values) value))))
 
-(match-name (tag :div "aa") :div)
-(match-name (tag :div "aa") :br)
+(defn value-contains [expr value] 
+  {:doc "Check if arguments of expr contain value"}
+  (let [values (tag-args expr)]
+    (some (fn [x] (= x value)) values)))
+
+(name-is (tag :div "aa") :div)
+(name-is (tag :div "aa") :br)
 
 (value-is (tag :div "x") "x")
+(value-is (tag :div "x") "d")
+(value-is (tag :div "x" "d") "x")
+
+(value-contains (tag :div "x" "d") "x")
+(value-contains (tag :div "x" "d") "x2")
+(value-contains (tag :div "x" (tag :br)) (tag :div))
 
 (def use-sample
   (tag :root
@@ -79,10 +91,6 @@
 
 (tag-args use-sample)
 (tag-args (tag :key))
-
-
-
-
 
 
 
