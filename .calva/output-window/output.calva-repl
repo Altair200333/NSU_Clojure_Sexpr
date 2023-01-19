@@ -676,3 +676,573 @@ false
 clj?plg?> 
 #'plg/match-name
 clj?plg?> 
+:plg/sring
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+"dsad"
+clj?plg?> 
+"asda"
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+("asd")
+clj?plg?> 
+"2"
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+#'plg/match-name
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+(:plg/tag
+ :root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+; = is not ISeqable
+clj?plg?> 
+#'plg/match-name
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+"dsad"
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+(:root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:plg/tag
+ :root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:plg/tag
+ :root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:plg/tag :div ("asd" "dsa" (:plg/tag :br)))
+clj?plg?> 
+(:root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:plg/tag
+ :root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(:root
+ ((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(((:plg/tag :div ("empty"))
+  (:plg/tag
+   :students
+   ((:plg/tag :student ("name1"))
+    (:plg/tag :student ("name2")) 
+    (:plg/tag :student ("name3")) 
+    (:plg/tag :student ("name4"))))))
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br)))
+clj?plg?> 
+; a.call is not a function
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br)))
+clj?plg?> 
+#object[r]
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br)))
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+#'plg/tag-name
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+"asd"
+clj?plg?> 
+:div
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+:div
+clj?plg?> 
+("asd" "dsa" (:plg/tag nil))
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+(:rest "val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val")
+clj?plg?> 
+("val" "data")
+clj?plg?> 
+("val" "data")
+clj?plg?> 
+; Attempting to call unbound fn: #'plg/x
+clj?plg?> 
+; Attempting to call unbound fn: #'plg/x
+clj?plg?> 
+; Attempting to call unbound fn: #'plg/x
+clj?plg?> 
+; Attempting to call unbound fn: #'plg/x
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+("val" "data")
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(nil)
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div "da" "net")
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div "da" "net")
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div "da" "net")
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+(:plg/tag :div ("da" "net"))
+clj?plg?> 
+#'plg/x
+clj?plg?> 
+"asd"
+clj?plg?> 
+; ja.call is not a function
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+(:plg/tag :div (("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+((("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+"asd"
+clj?plg?> 
+((("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+(("asd" "dsa" (plg/tag :br)))
+clj?plg?> 
+(("asd" "dsa" (plg/tag :br)))
+clj?plg?> 
+:div
+clj?plg?> 
+((("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+; Invalid arity: 1
+clj?plg?> 
+((("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+(:div (("asd" "dsa" (plg/tag :br))))
+clj?plg?> 
+(:div ("asd" "dsa" (:plg/tag nil)))
+clj?plg?> 
+"asd"
+clj?plg?> 
+"asd"
+clj?plg?> 
+(:div ("1" "2" "3"))
+clj?plg?> 
+(:div (("1" "2" "3")))
+clj?plg?> 
+(:div (("1" "2" "3")))
+clj?plg?> 
+("da" (("1" "2" "3")))
+clj?plg?> 
+(:div (("1" "2" "3")))
+clj?plg?> 
+(:div ("1" "2" "3"))
+clj?plg?> 
+("1" "2" "3")
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+#'plg/use-sample-2
+clj?plg?> 
+(:plg/tag :div ("1" "2" "3"))
+clj?plg?> 
+("1" "2" "3")
+clj?plg?> 
+#'plg/use-sample-2
+clj?plg?> 
+("1" (:plg/tag :key ("val")) "3")
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+("1" (:plg/tag :key ("val")) "3")
+clj?plg?> 
+("1" (:plg/tag :key ("val")) "3")
+clj?plg?> 
+#'plg/use-sample-2
+clj?plg?> 
+(:plg/tag :div ("empty"))
+clj?plg?> 
+(:plg/tag :div ("empty"))
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+nil
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/value-is
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/value-is
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/value-is
+clj?plg?> 

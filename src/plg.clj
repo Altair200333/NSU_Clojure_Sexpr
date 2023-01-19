@@ -9,10 +9,12 @@
 (defn array [& values]
   (cons ::array values))
 
-(defn tag-args [tag-expr] 
-  (first (rest (rest tag-expr))))
+(defn tag-args [tag-expr]
+  {:doc "Return tag arguments"}
+  (first (drop 2 tag-expr)))
 
 (defn tag-name [tag-expr]
+  {:doc "Return tag name"}
   (first (rest tag-expr)))
 
 (defn tag [name & children]
@@ -36,9 +38,6 @@
 (element-type (tag :div))
 (element-type "sd")
 
-(tag-args (array "asda" "dsad"))
-(tag-name (array "asda" "dsad"))
-
 (string? (::tag "asd"))
 
 
@@ -57,17 +56,29 @@
 (defn match-name [expr name]
   {:doc "check if tag name is equal to @name"}
   (= (tag-name expr) name))
+
+(defn value-is [expr value]
+  (let [values (tag-args expr)]
+    (if-not values
+      false
+      (= (first values) value))))
+
 (match-name (tag :div "aa") :div)
 (match-name (tag :div "aa") :br)
 
+(value-is (tag :div "x") "x")
 
+(def use-sample
+  (tag :root
+       (tag :div "empty")
+       (tag :students
+            (tag :student "name1")
+            (tag :student "name2")
+            (tag :student "name3")
+            (tag :student "name4"))))
 
-
-
-
-
-
-
+(tag-args use-sample)
+(tag-args (tag :key))
 
 
 
