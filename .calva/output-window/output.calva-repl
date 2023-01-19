@@ -1,0 +1,678 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ??
+
+; Jacking in...
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj?user-activate?>  ; Use `alt+enter` to evaluate
+; Creating cljs repl session...
+; Connecting cljs repl: joyride...
+;   The Calva Connection Log might have more connection progress information.
+; Connected session: cljs
+; TIPS: You can choose which REPL to use (clj or cljs):
+;    *Calva: Toggle REPL connection*
+;    (There is a button in the status bar for this)
+; Jack-in done.
+cljs?cljs.user?>  ; Use `alt+enter` to evaluate
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+#object[$5]
+clj?plg?> 
+2nil
+clj?plg?> 
+2nil
+clj?plg?> 
+2nil
+clj?plg?> 
+2
+nil
+clj?plg?> 
+1
+clj?plg?> 
+1
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+#'plg/test
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+2
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+1
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+; Could not resolve symbol: testing
+clj?plg?> 
+3
+clj?plg?> 
+2
+nil
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+; Unable to resolve classname: java.io.PushbackReader
+clj?plg?> 
+; Unmatched delimiter: )
+clj?plg?> 
+1
+clj?plg?> 
+#object[t_ Unbound: #'plg/x]
+clj?plg?> 
+##NaN
+clj?plg?> 
+2
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+3
+clj?plg?> 
+; REPL history clearedclj?plg?> #'plg/test1
+clj?plg?> 
+nil
+clj?plg?> 
+3
+clj?plg?> 
+"testing stuff"
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+; Could not resolve symbol: parse-list
+clj?plg?> 
+#'plg/str
+clj?plg?> 
+#'plg/str
+clj?plg?> 
+; Could not resolve symbol: asda
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+nil
+clj?plg?> 
+#'plg/str
+clj?plg?> 
+(:plg/string asda)
+nil
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+; Could not resolve symbol: string
+clj?plg?> 
+; Could not resolve symbol: string
+clj?plg?> 
+#'plg/string
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+(:plg/array "asda")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/array "asda" "dsad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/array "asda" "dsad")
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+; No protocol method IMapEntry.-key defined for type object: (:plg/array "asda" "dsad")
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+#'plg/key
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/string
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+#'plg/key
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/string
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+#'plg/key
+clj?plg?> 
+(:plg/string "asda")
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+(:plg/string "asdad")
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+#'plg/key
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+; Wrong number of args (0) passed to: :plg/tag
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+("asda" "dsad")
+clj?plg?> 
+:plg/array
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+nil
+clj?plg?> 
+:div
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+(:div ("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+(:div ("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+true
+clj?plg?> 
+(:div ("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+#'plg/name
+clj?plg?> 
+:plg/array
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/args
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+#'plg/name
+clj?plg?> 
+:div
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+:div
+clj?plg?> 
+()
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br nil))
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+(("asd"))
+clj?plg?> 
+()
+clj?plg?> 
+(("asd"))
+clj?plg?> 
+(("asd"))
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+:div
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+#'plg/tag-name
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+("dsad")
+clj?plg?> 
+"asda"
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+(("asd"))
+clj?plg?> 
+:div
+clj?plg?> 
+(("asd" "dsa" (:plg/tag :br nil)))
+clj?plg?> 
+(("asd"))
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+(:div ("asd"))
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+#'plg/tag-name
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br nil))
+clj?plg?> 
+("asd")
+clj?plg?> 
+:div
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd")
+clj?plg?> 
+("div")
+clj?plg?> 
+("div")
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+"asd"
+clj?plg?> 
+"div"
+clj?plg?> 
+"asd"
+clj?plg?> 
+:div
+clj?plg?> 
+"asda"
+clj?plg?> 
+"dsad"
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+("asd")
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+#'plg/test1
+clj?plg?> 
+3
+clj?plg?> 
+#'plg/array
+clj?plg?> 
+#'plg/tag-args
+clj?plg?> 
+#'plg/tag-name
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+"dsad"
+clj?plg?> 
+"asda"
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+("asd")
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/tag?
+clj?plg?> 
+#'plg/element-type
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+:plg/rest
+clj?plg?> 
+#'plg/element-type
+clj?plg?> 
+:plg/sring
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/sring
+clj?plg?> 
+"dsad"
+clj?plg?> 
+"asda"
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+("asd")
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+:div
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd")
+clj?plg?> 
+("div")
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+("1" "2" "3" "4")
+clj?plg?> 
+"2"
+clj?plg?> 
+; Could not resolve symbol: third
+clj?plg?> 
+"2"
+clj?plg?> 
+"2"
+clj?plg?> 
+("asd" "dsa" (:plg/tag :br))
+clj?plg?> 
+:div
+clj?plg?> 
+#'plg/match-name
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/match-name
+clj?plg?> 
