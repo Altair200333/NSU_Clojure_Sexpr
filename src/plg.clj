@@ -170,13 +170,16 @@
 
 (defn filter-by-index [tags idx]
   (loop [values tags index 0]
-    (if (>= index idx)
+    (if (= index idx)
       (list (first values))
-      (recur (rest values) (inc index)))))
+      (if (empty? values)
+        (list)
+        (recur (rest values) (inc index))))))
 
 (filter-value-is use-students "bob")
 (filter-values-contain use-students "tom")
 (filter-by-index use-students 0)
+(filter-by-index use-students 10)
 
 (def s-filter-is {:tag "div" :is "name1"})
 (def s-filter-id {:tag "div" :id 1})
@@ -204,10 +207,11 @@
 (defn process-filters [tags query]
   (let [key (first (second query)) reducer (filter-reducer key)]
     (if-not reducer
-      true
+      tags ;; if not reducer found query was wrong - just keep going
       (reducer tags query))))
 
 (process-filters use-students {:tag "div" :is "name1"})
+(process-filters use-students {:tag "div" :id 5})
 
 (defn list-tag-args [tags]
   {:doc "Get list of children from @tags"}
@@ -221,10 +225,12 @@
   (loop [tags expr q queries results []] 
     (if (empty? tags) 
       results ;; looked over all tags - nothing to look for
-      (let [matches (query-matching-expressions tags (first q))]
+      (let [matches (query-matching-expressions tags (first q))
+            filtered (process-filters matches (first q))
+            children (list-tag-args filtered)] 
         (if (<= (count q) 1) ;; last query part - if we match here result is @matches
-          (concat results matches)
-          (recur (list-tag-args matches) (rest q) results)))))) ;; bite head and go down
+          (concat results filtered)
+          (recur children (rest q) results)))))) ;; bite head and go down
 
 (defn find-query-abs [expr query]
   {:doc "Find elements by query with absolute path;
@@ -235,6 +241,8 @@
 (find-query-abs use-list-sample (list match-div-q {:tag "br"}))
 (find-query-abs use-list-sample (list {:tag "students"} {:tag "student"}))
 
+(find-query-abs use-list-sample 
+                (list {:tag "students"} {:tag "student" :id 2}))
 
 
 (str/includes? "asd" "d")

@@ -2857,3 +2857,371 @@ clj?plg?> 
 clj?plg?> 
 ((:plg/tag :student ("name1")))
 clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+; true is not ISeqable
+clj?plg?> 
+; true is not ISeqable
+clj?plg?> 
+; true is not ISeqable
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+; true is not ISeqable
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+; true is not ISeqable
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[]
+clj?plg?> 
+[]
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+(nil)
+clj?plg?> 
+(nil)
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+(nil)
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+; Index out of bounds
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/s-filter-is
+clj?plg?> 
+#'plg/s-filter-id
+clj?plg?> 
+true
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/process-id-filter
+clj?plg?> 
+#'plg/process-is-filter
+clj?plg?> 
+#'plg/process-contains-filter
+clj?plg?> 
+#'plg/filter-reducer
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+(nil)
+clj?plg?> 
+()
+clj?plg?> 
+; ea.call is not a function
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))]
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+(nil)
+(nil)
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] (nil)
+(nil)
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] [(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))]
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] (nil)
+(nil)
+clj?plg?> 
+#js []
+clj?plg?> 
+#js []
+clj?plg?> 
+#js [2 2]
+clj?plg?> 
+([2 2])
+clj?plg?> 
+(2 2)
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :br (br))] ((:plg/tag :br (br)))
+((:plg/tag :br ("br")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob)))
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] (nil)
+(nil)
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/filter-reducer
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] (nil)
+(nil)
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] [(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))]
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] [(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))]
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+() ()
+()
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+() ()
+()
+clj?plg?> 
+() ()
+()
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :br (br))] ()
+()
+clj?plg?> 
+[(:plg/tag :div (empty)) (:plg/tag :div (element)) (:plg/tag :div ((:plg/tag :br (br))))] ((:plg/tag :br (br)))
+((:plg/tag :br ("br")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+()
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :div (empty)) (:plg/tag :div (element)) (:plg/tag :div ((:plg/tag :br (br))))] ((:plg/tag :br (br)))
+((:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ((:plg/tag :br ("br")))))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :br (br))] ()
+((:plg/tag :br ("br")))
+clj?plg?> 
+[(:plg/tag :students ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))))] ((:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob)))
+((:plg/tag :students ((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))))
+clj?plg?> 
+; Could not resolve symbol: lsit
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+[(:plg/tag :br (br))] ()
+((:plg/tag :br ("br")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+[(:plg/tag :student (name1)) (:plg/tag :student (name2)) (:plg/tag :student (bob))] ()
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")) (:plg/tag :student ("bob")))
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("bob")))
+clj?plg?> 
