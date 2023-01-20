@@ -2613,3 +2613,247 @@ clj?plg?> 
 clj?plg?> 
 ((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
 clj?plg?> 
+((:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ((:plg/tag :br ("br")))))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+nil
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+; The map literal starting with :doc contains 3 form(s). Map literals must contain an even number of forms.
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name4")) (:plg/tag :student ("name2")))
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+; Could not resolve symbol: str/contains
+clj?plg?> 
+; Could not resolve symbol: includes?
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/match-query-tag
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+#'plg/list-tag-args
+clj?plg?> 
+#'plg/find-query-abs-impl
+clj?plg?> 
+#'plg/find-query-abs
+clj?plg?> 
+((:plg/tag :student ("name1")) (:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :br ("br")))
+clj?plg?> 
+true
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/sring
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/filter-value-is
+clj?plg?> 
+#'plg/filter-value-contains
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+#'plg/use-students
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("bob")))
+clj?plg?> 
+#'plg/use-students
+clj?plg?> 
+#'plg/values-contain
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/filter-values-contain
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+()
+clj?plg?> 
+#'plg/filter-by-index
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+(nil)
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+#'plg/s-filter
+clj?plg?> 
+; Invalid arity: 0
+clj?plg?> 
+[:tag "div"]
+clj?plg?> 
+[:is "name1"]
+clj?plg?> 
+#'plg/s-filter1
+clj?plg?> 
+; Could not resolve symbol: s-filter-is
+clj?plg?> 
+#'plg/s-filter-is
+clj?plg?> 
+[:is "name1"]
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/s-filter-is
+clj?plg?> 
+#'plg/s-filter-is
+clj?plg?> 
+#'plg/s-filter-id
+clj?plg?> 
+#'plg/s-filter-is
+clj?plg?> 
+#'plg/process-is-filter
+clj?plg?> 
+#'plg/process-is-filter
+clj?plg?> 
+#'plg/process-contains-filter
+clj?plg?> 
+#'plg/process-is-filter
+clj?plg?> 
+#'plg/process-contains-filter
+clj?plg?> 
+#'plg/process-id-filter
+clj?plg?> 
+true
+clj?plg?> 
+[:key "value"]
+clj?plg?> 
+()
+clj?plg?> 
+[:key "value"]
+clj?plg?> 
+; Invalid arity: 0
+clj?plg?> 
+[:key "value"]
+clj?plg?> 
+[:id 1]
+clj?plg?> 
+[:id 1]
+clj?plg?> 
+:id
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+nil
+clj?plg?> 
+true
+clj?plg?> 
+nil
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+#'plg/filter-reducer
+clj?plg?> 
+#object[Function]
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+#'plg/process-filters
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("name2")))
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+((:plg/tag :student ("bob" "tom")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+()
+clj?plg?> 
+((:plg/tag :student ("name1")))
+clj?plg?> 

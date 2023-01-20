@@ -3,10 +3,6 @@
 
 ;; Testing stuff
 
-(defn test1 [x] (+ x 1))
-
-(test1 2)
-
 (defn array [& values]
   (cons ::array values))
 
@@ -41,7 +37,6 @@
 
 (string? (::tag "asd"))
 
-
 (tag? (::tag "asd"))
 
 (tag? (tag :div "ds"))
@@ -61,6 +56,8 @@
     (= (tag-name expr) name)
     (= (tag-name expr) (keyword name))))
 
+;; matchers
+
 (defn value-is [expr value] 
   {:doc "Check if (first) argument of expr is equal to value"}
   (let [values (tag-args expr)]
@@ -68,7 +65,7 @@
       false
       (= (first values) value))))
 
-(defn value-contains [expr value] 
+(defn values-contain [expr value] 
   {:doc "Check if arguments of expr contain value"}
   (let [values (tag-args expr)]
     (some (fn [x] (= x value)) values)))
@@ -81,9 +78,14 @@
 (value-is (tag :div "x") "d")
 (value-is (tag :div "x" "d") "x")
 
-(value-contains (tag :div "x" "d") "x")
-(value-contains (tag :div "x" "d") "x2")
-(value-contains (tag :div "x" (tag :br)) (tag :div))
+(values-contain (tag :div "x" "d") "x")
+(values-contain (tag :div "x" "d") "x2")
+(values-contain (tag :div "x" (tag :br)) (tag :div))
+
+;; ------
+
+
+;; sample data
 
 (def use-sample
   (tag :root
@@ -96,12 +98,19 @@
 
 (first (tag-args (last (tag-args use-sample))))
 
+(def use-students
+  (list
+   (tag :student "name1")
+   (tag :student "name2")
+   (tag :student "bob" "tom")))
+
 (def use-list-sample
   (list 
    (tag :div "empty") 
    (tag :students 
-        (tag :student "name4")
-        (tag :student "name2"))
+        (tag :student "name1")
+        (tag :student "name2")
+        (tag :student "bob"))
    (tag :div "element")
    (tag :div 
         (tag :br "br"))
@@ -109,31 +118,26 @@
    (tag :br "br here")))
 (tag :br)
 
+;; ---
+
 (tag-args use-sample)
 (tag-args (tag :key))
 
 (str/split "path/d/te" #"/")
 (re-matches #"(a+)(b+)(\d+)" "abb234")
 
-(def dict-data {:name "name" :tag value-is})
-(dict-data :name)
-
 ;; list of tag predicates (...)
-;; {:tag "name of tag" :matcher *condition on value of tag*}
+;; {:tag "name of tag" :matcher *condition on value of tag (fn)*}
 
 (def match-all-q {:tag "*"})
 (def match-div-q {:tag "div"})
 (def match-br-q {:tag "br"})
 
-(defn match-query [expr query]
+(defn match-query-tag [expr query]
   (let [name (query :tag)]
     (if (= name "*")
       true
       (name-is expr name))))
-
-(match-query (tag :div "value") match-div-q)
-(match-query (tag :div "value") match-br-q)
-(match-query (tag :div "value") match-all-q)
 
 (defn turn-into-list [expr]
   {:doc "Make sure expr is list so it's iterable"}
@@ -142,58 +146,98 @@
     (if (seq? expr)
       expr
       (list expr))))
-(turn-into-list (list (tag :name "value") "12"))
 
 (defn query-matching-expressions [expr query]
   (loop [list-exprs (turn-into-list expr) results []] 
     (if (empty? list-exprs) 
       results
       (let [first-expr (first list-exprs)]
-        (if (match-query first-expr query)
+        (if (match-query-tag first-expr query)
           (recur (rest list-exprs) (conj results first-expr))
           (recur (rest list-exprs) results))))))
 
-(query-matching-expressions use-list-sample match-div-q)
-(query-matching-expressions use-list-sample match-br-q)
-(query-matching-expressions use-list-sample match-all-q)
-(query-matching-expressions use-list-sample {:tag "none"})
+(defn filter-value-is [tags value]
+  (filter 
+   (fn [x]
+     (value-is x value)) 
+   tags))
+
+(defn filter-values-contain [tags value]
+  (filter
+   (fn [x]
+     (values-contain x value))
+   tags))
+
+(defn filter-by-index [tags idx]
+  (loop [values tags index 0]
+    (if (>= index idx)
+      (list (first values))
+      (recur (rest values) (inc index)))))
+
+(filter-value-is use-students "bob")
+(filter-values-contain use-students "tom")
+(filter-by-index use-students 0)
+
+(def s-filter-is {:tag "div" :is "name1"})
+(def s-filter-id {:tag "div" :id 1})
+
+(= (first (second s-filter-id)) :id) 
+(first (second match-all-q))
+
+(defn process-id-filter [tags query]
+  (let [idx (query :id)]
+    (filter-by-index tags idx)))
+
+(defn process-is-filter [tags query]
+  (let [value (query :is)]
+    (filter-value-is tags value)))
+
+(defn process-contains-filter [tags query]
+  (let [value (query :contains)]
+    (filter-values-contain tags value)))
+
+(def filter-reducer 
+  {:id process-id-filter 
+   :is process-is-filter
+   :contains process-contains-filter})
+
+(defn process-filters [tags query]
+  (let [key (first (second query)) reducer (filter-reducer key)]
+    (if-not reducer
+      true
+      (reducer tags query))))
+
+(process-filters use-students {:tag "div" :is "name1"})
 
 (defn list-tag-args [tags]
+  {:doc "Get list of children from @tags"}
   (filter tag? (reduce 
     (fn [acc, x] 
       (concat acc (tag-args x))) 
     (list)
     tags)))
 
-(seq? (list-tag-args use-list-sample))
-(turn-into-list (list-tag-args use-list-sample))
-
-(seq? (list-tag-args use-list-sample))
-(seq? (list 1 2 3))
-(query-matching-expressions (list-tag-args use-list-sample) {:tag "div"})
-
 (defn find-query-abs-impl [expr queries]
   (loop [tags expr q queries results []] 
     (if (empty? tags) 
       results ;; looked over all tags - nothing to look for
       (let [matches (query-matching-expressions tags (first q))]
-        (if (<= (count q) 1)
+        (if (<= (count q) 1) ;; last query part - if we match here result is @matches
           (concat results matches)
-          (recur (list-tag-args matches) (rest q) results))))))
+          (recur (list-tag-args matches) (rest q) results)))))) ;; bite head and go down
 
 (defn find-query-abs [expr query]
+  {:doc "Find elements by query with absolute path;
+         @expr - tag or list of tags"}
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query)]
     (find-query-abs-impl list-exprs queries)))
 
-(find-query-abs use-list-sample match-div-q)
+(find-query-abs use-list-sample (list match-div-q {:tag "br"}))
 (find-query-abs use-list-sample (list {:tag "students"} {:tag "student"}))
 
 
 
-
-
-
-
+(str/includes? "asd" "d")
 
 
 
