@@ -1819,3 +1819,122 @@ clj?plg?> 
      (:plg/tag :student ("name3")) 
      (:plg/tag :student ("name4"))))))]
 clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+true
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+; Too many arguments to def
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+[(:plg/tag :br ("br here"))]
+clj?plg?> 
+[(:plg/tag :div ("empty"))
+ (:plg/tag :students ((:plg/tag :student ("name4"))))
+ (:plg/tag :div ("element")) 
+ (:plg/tag :div ("sample")) 
+ (:plg/tag nil) 
+ (:plg/tag :br ("br here"))]
+clj?plg?> 
+[(:plg/tag :br ("br here"))]
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+[(:plg/tag :br ("br here"))]
+clj?plg?> 
+[(:plg/tag :div ("empty"))
+ (:plg/tag :students ((:plg/tag :student ("name4"))))
+ (:plg/tag :div ("element")) 
+ (:plg/tag :div ("sample")) 
+ (:plg/tag nil) 
+ (:plg/tag :br ("br here"))]
+clj?plg?> 
+(:plg/tag nil)
+clj?plg?> 
+(:plg/tag nil)
+clj?plg?> 
+(:plg/tag nil)
+clj?plg?> 
+(:plg/tag nil)
+clj?plg?> 
+#'plg/tag
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+(:plg/tag :br)
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+#'plg/match-query
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+[(:plg/tag :br) (:plg/tag :br ("br here"))]
+clj?plg?> 
+[(:plg/tag :div ("empty"))
+ (:plg/tag :students ((:plg/tag :student ("name4"))))
+ (:plg/tag :div ("element")) 
+ (:plg/tag :div ("sample")) 
+ (:plg/tag :br) 
+ (:plg/tag :br ("br here"))]
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 

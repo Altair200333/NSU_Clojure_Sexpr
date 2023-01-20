@@ -22,7 +22,7 @@
   {:doc "Create named tag with children"}
   (if children 
     (list ::tag name children)
-    (list ::tag children)))
+    (list ::tag name)))
 
 (defn tag? [expr]
   {:doc "Check if expr is tag"}
@@ -101,7 +101,9 @@
         (tag :student "name4"))
    (tag :div "element")
    (tag :div "sample")
-   (tag :br)))
+   (tag :br)
+   (tag :br "br here")))
+(tag :br)
 
 (tag-args use-sample)
 (tag-args (tag :key))
@@ -147,9 +149,9 @@
           (recur (rest list-exprs) (conj results first-expr))
           (recur (rest list-exprs) results))))))
 
-(match-query (first (turn-into-list use-list-sample)) match-div-q)
-
 (query-matching-expressions use-list-sample match-div-q)
+(query-matching-expressions use-list-sample match-br-q)
+(query-matching-expressions use-list-sample match-all-q)
 
 (defn find-query [expr query]
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query)]
@@ -159,6 +161,7 @@
         (recur (rest tags) (conj results (first tags)) )))))
 
 (find-query use-sample match-div-q)
+
 
 
 
