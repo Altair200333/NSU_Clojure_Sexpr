@@ -94,13 +94,17 @@
             (tag :student "name3")
             (tag :student "name4"))))
 
+(first (tag-args (last (tag-args use-sample))))
+
 (def use-list-sample
   (list 
    (tag :div "empty") 
    (tag :students 
-        (tag :student "name4"))
+        (tag :student "name4")
+        (tag :student "name2"))
    (tag :div "element")
-   (tag :div "sample")
+   (tag :div 
+        (tag :br "br"))
    (tag :br)
    (tag :br "br here")))
 (tag :br)
@@ -135,7 +139,7 @@
   {:doc "Make sure expr is list so it's iterable"}
   (if (tag? expr)
     (list expr)
-    (if (list? expr)
+    (if (seq? expr)
       expr
       (list expr))))
 (turn-into-list (list (tag :name "value") "12"))
@@ -152,15 +156,37 @@
 (query-matching-expressions use-list-sample match-div-q)
 (query-matching-expressions use-list-sample match-br-q)
 (query-matching-expressions use-list-sample match-all-q)
+(query-matching-expressions use-list-sample {:tag "none"})
 
-(defn find-query [expr query]
+(defn list-tag-args [tags]
+  (filter tag? (reduce 
+    (fn [acc, x] 
+      (concat acc (tag-args x))) 
+    (list)
+    tags)))
+
+(seq? (list-tag-args use-list-sample))
+(turn-into-list (list-tag-args use-list-sample))
+
+(seq? (list-tag-args use-list-sample))
+(seq? (list 1 2 3))
+(query-matching-expressions (list-tag-args use-list-sample) {:tag "div"})
+
+(defn find-query-abs-impl [expr queries]
+  (loop [tags expr q queries results []] 
+    (if (empty? tags) 
+      results ;; looked over all tags - nothing to look for
+      (let [matches (query-matching-expressions tags (first q))]
+        (if (<= (count q) 1)
+          (concat results matches)
+          (recur (list-tag-args matches) (rest q) results))))))
+
+(defn find-query-abs [expr query]
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query)]
-    (loop [tags list-exprs results []]
-      (if (empty? tags)
-        results
-        (recur (rest tags) (conj results (first tags)) )))))
+    (find-query-abs-impl list-exprs queries)))
 
-(find-query use-sample match-div-q)
+(find-query-abs use-list-sample match-div-q)
+(find-query-abs use-list-sample (list {:tag "students"} {:tag "student"}))
 
 
 
