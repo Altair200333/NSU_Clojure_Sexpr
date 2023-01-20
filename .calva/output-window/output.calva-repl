@@ -1342,3 +1342,480 @@ nil
 clj?plg?> 
 nil
 clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/use-sample
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+nil
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/name-is
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+nil
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+nil
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag
+  :students
+  ((:plg/tag :student ("name1"))
+   (:plg/tag :student ("name2")) 
+   (:plg/tag :student ("name3")) 
+   (:plg/tag :student ("name4")))))
+clj?plg?> 
+nil
+clj?plg?> 
+nil
+clj?plg?> 
+; Could not resolve symbol: split
+clj?plg?> 
+; Could not resolve symbol: string/split
+clj?plg?> 
+(:plg/string "path/d/te")
+clj?plg?> 
+; Function.prototype.apply was called on undefined, which is a undefined and not a function
+clj?plg?> 
+; Could not resolve symbol: string/split
+clj?plg?> 
+; Could not resolve symbol: string/split
+clj?plg?> 
+; Could not resolve symbol: str/split
+clj?plg?> 
+; No matching clause: 
+clj?plg?> 
+nil
+clj?plg?> 
+["path/d/te"]
+clj?plg?> 
+["path" "d" "te"]
+clj?plg?> 
+; re-matches must match against a string.
+clj?plg?> 
+; [line 1, col 25] Unsupported escape character: \d.
+clj?plg?> 
+["abb234" "a" "bb" "234"]
+clj?plg?> 
+["abb234" "a" "bb" "234"]
+clj?plg?> 
+["path" "d" "te"]
+clj?plg?> 
+["path" "d" "te"]
+clj?plg?> 
+["abb234" "a" "bb" "234"]
+clj?plg?> 
+["path" "d" "te"]
+clj?plg?> 
+["abb234" "a" "bb" "234"]
+clj?plg?> 
+{:name "aa", :tag "div"}
+clj?plg?> 
+[:div]
+clj?plg?> 
+[:tag]
+clj?plg?> 
+; The map literal starting with hash-map contains 5 form(s). Map literals must contain an even number of forms.
+clj?plg?> 
+; The map literal starting with hash-map contains 3 form(s). Map literals must contain an even number of forms.
+clj?plg?> 
+; The map literal starting with hash-map contains 3 form(s). Map literals must contain an even number of forms.
+clj?plg?> 
+#'plg/data
+clj?plg?> 
+{:name "aa", :tag "div"}
+clj?plg?> 
+nil
+clj?plg?> 
+"aa"
+clj?plg?> 
+"aa"
+clj?plg?> 
+"div"
+clj?plg?> 
+nil
+clj?plg?> 
+"div"
+clj?plg?> 
+#'plg/data
+clj?plg?> 
+#object[Function]
+clj?plg?> 
+#'plg/dict-data
+clj?plg?> 
+false
+clj?plg?> 
+#'plg/dict-data
+clj?plg?> 
+false
+clj?plg?> 
+#object[Function]
+clj?plg?> 
+"aa"
+clj?plg?> 
+"aa"
+clj?plg?> 
+#'plg/dict-data
+clj?plg?> 
+"name"
+clj?plg?> 
+"name"
+clj?plg?> 
+"name"
+clj?plg?> 
+#'plg/condition1
+clj?plg?> 
+#'plg/match-query
+clj?plg?> 
+"name"
+clj?plg?> 
+#'plg/match-all-q
+clj?plg?> 
+#'plg/match-div-q
+clj?plg?> 
+#'plg/match-div-q
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/match-div-q
+clj?plg?> 
+#'plg/match-br-q
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+(:plg/tag :name ("value"))
+clj?plg?> 
+((plg/tag :name "value"))
+clj?plg?> 
+((plg/tag :name "value") (plg/tag :name "value"))
+clj?plg?> 
+(plg/tag :name "value")
+clj?plg?> 
+(plg/tag :name "value")
+clj?plg?> 
+(:plg/tag :name ("value"))
+clj?plg?> 
+(:plg/tag :name ("value"))
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+:plg/tag
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+"d"
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+plg/expr
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+; Could not resolve symbol: value
+clj?plg?> 
+(plg/expr)
+clj?plg?> 
+#'plg/turn-into-list
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+((:plg/tag :name ("value")))
+clj?plg?> 
+((:plg/tag :name ("value")))
+clj?plg?> 
+((:plg/tag :name ("value")) (:plg/tag :name ("value")))
+clj?plg?> 
+((:plg/tag :name ("value")) 2)
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+((:plg/tag :name ("value")) "12")
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+false
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+(((:plg/tag
+   :root
+   ((:plg/tag :div ("empty"))
+    (:plg/tag
+     :students
+     ((:plg/tag :student ("name1"))
+      (:plg/tag :student ("name2")) 
+      (:plg/tag :student ("name3")) 
+      (:plg/tag :student ("name4"))))))) 
+ ({:tag "div"}))
+clj?plg?> 
+(((:plg/tag
+   :root
+   ((:plg/tag :div ("empty"))
+    (:plg/tag
+     :students
+     ((:plg/tag :student ("name1"))
+      (:plg/tag :student ("name2"))
+      (:plg/tag :student ("name3")) 
+      (:plg/tag :student ("name4"))))))) 
+ ({:tag "div"} {:tag "br"}))
+clj?plg?> 
+(((:plg/tag
+   :root
+   ((:plg/tag :div ("empty"))
+    (:plg/tag
+     :students
+     ((:plg/tag :student ("name1"))
+      (:plg/tag :student ("name2")) 
+      (:plg/tag :student ("name3")) 
+      (:plg/tag :student ("name4"))))))) 
+ ({:tag "div"}))
+clj?plg?> 
+(((:plg/tag
+   :root
+   ((:plg/tag :div ("empty"))
+    (:plg/tag
+     :students
+     ((:plg/tag :student ("name1"))
+      (:plg/tag :student ("name2")) 
+      (:plg/tag :student ("name3")) 
+      (:plg/tag :student ("name4"))))))) 
+ ({:tag "div"}))
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[]
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+#'plg/use-list-sample
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+nil
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[:plg/tag :plg/tag :plg/tag]
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[:plg/tag :plg/tag :plg/tag]
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[:plg/tag :plg/tag :plg/tag]
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+false
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+true
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+[:plg/tag :plg/tag :plg/tag]
+clj?plg?> 
+((:plg/tag :div ("empty"))
+ (:plg/tag :students ((:plg/tag :student ("name4"))))
+ (:plg/tag :div ("element")) 
+ (:plg/tag :div ("sample")) 
+ (:plg/tag nil))
+clj?plg?> 
+((:plg/tag :students ((:plg/tag :student ("name4"))))
+ (:plg/tag :div ("element")) 
+ (:plg/tag :div ("sample")) 
+ (:plg/tag nil))
+clj?plg?> 
+true
+clj?plg?> 
+; Could not resolve symbol: expr
+clj?plg?> 
+#'plg/query-matching-expressions
+clj?plg?> 
+true
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+true
+clj?plg?> 
+[(:plg/tag :div ("empty")) (:plg/tag :div ("element")) (:plg/tag :div ("sample"))]
+clj?plg?> 
+#'plg/find-query
+clj?plg?> 
+[(:plg/tag
+  :root
+  ((:plg/tag :div ("empty"))
+   (:plg/tag
+    :students
+    ((:plg/tag :student ("name1"))
+     (:plg/tag :student ("name2")) 
+     (:plg/tag :student ("name3")) 
+     (:plg/tag :student ("name4"))))))]
+clj?plg?> 
