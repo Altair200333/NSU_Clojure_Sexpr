@@ -176,19 +176,21 @@
 (find-query-abs use-list-sample
                 (list {:tag "*" :id 2}))
 
-(defn find-query-rel-impl [tags q results]
-  (if (empty? tags)
+
+(defn find-query-rel-impl [tags q results] 
+    (if (empty? tags)
     results ;; looked over all tags - nothing to look for
     (let [matches (query-matching-expressions tags (first q))
-          filtered (process-filters matches (first q))
-          children (list-tag-args filtered)]
-      (do
-        (println matches q)
+          filtered (process-filters matches (first q))] 
         (if (empty? filtered)
         (concat results (find-query-rel-impl (list-tag-args tags) q results))
         (if (and (not-empty filtered) (<= (count q) 1))
           (concat results filtered)
-          (concat results (find-query-rel-impl children (rest q) results))))))))
+          (concat results (reduce
+           (fn [acc, x]
+             (concat acc (find-query-rel-impl (list-tag-args (list x)) (rest q) [])))
+           []
+           filtered)))))))
 
 (defn find-query-rel [expr query]
   {:doc "Find elements by query with absolute path;
@@ -207,7 +209,7 @@
 (find-all-query use-list-sample {:tag "student" :rel true})
 (find-all-query use-list-sample {:tag "student"})
 
-(find-all-query use-list-sample (list {:tag "*"} {:tag "*" :id 3}))
+(find-all-query use-list-sample (list {:tag "*"} {:tag "*"}))
 (find-all-query use-list-sample (list {:tag "*" :rel true} {:tag "*" :id 0}))
 
 
@@ -217,8 +219,8 @@
 
 (flatten (list (list 4) (list) (list 1 2 3)))
 
-
-
+(defn test [items]
+  (map (fn )))
 
 
 
