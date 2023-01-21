@@ -39,11 +39,6 @@
 (values-contain (tag :div "x" "d") "x2")
 (values-contain (tag :div "x" (tag :br)) (tag :div))
 
-;; ------
-
-
-;; sample data
-
 (first (tag-args (last (tag-args use-sample))))
 
 (tag :br)
@@ -214,24 +209,51 @@
 
 (find-all-query use-list-sample (list {:tag "*"} {:tag "*"}))
 (find-all-query use-list-sample (list {:tag "*" :rel true} {:tag "*" :id 0}))
+(find-all-query use-list-sample (list {:tag "*"} {:tag "*" :id 0}))
 
 
 (list-tag-args use-list-sample)
 
 (str/includes? "asd" "d")
 
-(flatten (list (list 4) (list) (list 1 2 3)))
-
-(defn test [items]
-  (map (fn )))
-
-
-
-
+(def use-schema
+  (tag :root
+       (tag :tank
+            (tag :t34 "*")
+            (tag :abrams))
+       (tag :plane)))
 
 
+(defn validate-tag-name [tag node]
+  (= (tag-name tag) (tag-name node)))
 
+(validate-tag-name (tag :s) (tag "s"))
 
+(defn schema-validation-impl [tags schema]
+  (let [first-tag (first tags) first-node (first schema)]
+    (if (and (empty? tags) (empty? schema))
+      true 
+      (and
+       (and 
+        (validate-tag-name first-tag first-node)
+        (if (value-is first-node "*")
+          true
+          (schema-validation-impl
+           (list-tag-args (list first-tag))
+           (list-tag-args (list first-node)))))
+       (schema-validation-impl (rest tags) (rest schema))))))
+
+(defn validate-by-schema [tags schema]
+  (let [tag-list (turn-into-list tags) schema-list (turn-into-list schema)]
+    (schema-validation-impl tag-list schema-list)))
+
+(validate-by-schema (tag :root
+                         (tag :tank
+                              (tag :t34 
+                                   (tag :speed))
+                              (tag :abrams))
+                         (tag :plane))
+                    use-schema)
 
 
 
