@@ -1,8 +1,11 @@
 (ns plg)
- (require '[clojure.string :as str])
+(require '[clojure.string :as str] 
+         '[clojure.edn :as edn])
+
+
 
 ;; Testing stuff
-
+ 
 (defn array [& values]
   (cons ::array values))
 
@@ -243,7 +246,10 @@
 
 (find-query-abs use-list-sample 
                 (list {:tag "students"} {:tag "student" :id 2}))
+(find-query-abs use-list-sample
+                (list {:tag "*" :id 2}))
 
+(find-query-abs use-list-sample (list {:tag "student"}))
 
 (str/includes? "asd" "d")
 
