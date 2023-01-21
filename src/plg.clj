@@ -151,30 +151,33 @@
     (list)
     tags)))
 
-(defn find-query-abs-impl [expr queries]
-  (loop [tags expr q queries results []] 
-    (if (empty? tags) 
-      results ;; looked over all tags - nothing to look for
-      (let [matches (query-matching-expressions tags (first q))
-            filtered (process-filters matches (first q))
-            children (list-tag-args filtered)] 
-        (if (<= (count q) 1) ;; last query part - if we match here result is @matches
-          (concat results filtered)
-          (recur children (rest q) results)))))) ;; bite head and go down
+(defn find-query-abs-impl [tags q results]
+  (if (empty? tags)
+    results ;; looked over all tags - nothing to look for
+    (let [matches (query-matching-expressions tags (first q))
+          filtered (process-filters matches (first q))]
+      (if (<= (count q) 1) ;; last query part - if we match here result is @matches
+        (concat results filtered)
+        (concat results 
+                (reduce
+                 (fn [acc, x]
+                   (concat acc (find-query-abs-impl (list-tag-args (list x)) (rest q) [])))
+                 []
+                 filtered)))))) ;; bite head and go down
 
 (defn find-query-abs [expr query]
   {:doc "Find elements by query with absolute path;
          @expr - tag or list of tags"}
-  (let [list-exprs (turn-into-list expr) queries (turn-into-list query)]
-    (find-query-abs-impl list-exprs queries)))
+  (let [list-exprs (turn-into-list expr) queries (turn-into-list query) results []]
+    (find-query-abs-impl list-exprs queries results)))
 
 (find-query-abs use-list-sample (list match-div-q {:tag "br"}))
 (find-query-abs use-list-sample (list {:tag "students"} {:tag "student"}))
 
 (find-query-abs use-list-sample 
                 (list {:tag "students"} {:tag "student" :id 1}))
-(find-query-abs use-list-sample
-                (list {:tag "*" :id 2}))
+(find-query-abs use-list-sample (list {:tag "*" :id 2}))
+(find-query-abs use-list-sample (list {:tag "*"} {:tag "*" :id 0}))
 
 
 (defn find-query-rel-impl [tags q results] 
