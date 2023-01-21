@@ -13,4 +13,5 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 .calva/output-window/output.calva-repl
-.clj-kondo/.cache/v1/clj/plg.transit.json
+.clj-kondo/
+.lsp/
