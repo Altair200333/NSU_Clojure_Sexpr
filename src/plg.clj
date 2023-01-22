@@ -143,7 +143,21 @@
   {:doc "Create named tag with children"}
   (list ::tag-for query))
 
-(tag-for "div")
+(defn tag-for? [expr]
+  {:doc "Check if expr is tag"}
+  (= (first expr) ::tag-for))
+
+
+(defn tag-find [query]
+  {:doc "Create named tag with children"}
+  (list ::tag-find query))
+
+(defn tag-find? [expr]
+  {:doc "Check if expr is tag"}
+  (= (first expr) ::tag-find))
+
+(tag-for? (tag-for "div"))
+(tag-find? (tag-find "br"))
 
 (def nes (list 1 (list 1 2 3)))
 
@@ -155,25 +169,43 @@
 
 (strf nes)
 
-(defn to-string [val]
+(defn repeat-str [x n]
+  (str/join "" (repeat n x)))
+
+(defn pad [depth]
+  (repeat-str "  " (max depth 0)))
+
+(defn to-string [val depth]
+  {:doc "Convert given tags into html string"}
   (if (tag? val)
     (let [name (subs (str (tag-name val)) 1) values (tag-args val)]
       (if (empty? values)
-        (str "<" name "/>")
-        (str "<" name ">" (to-string values) "</" name ">"))) 
+        (str (pad depth) "<" name "/>")
+        (str (pad depth) "<" name ">\n"
+             (to-string values (inc depth)) "\n"
+             (pad depth) "</" name ">")))
     (if (seq? val)
-      (str/join "\n" (map (fn [x] (to-string x)) val))
-      (if (string? val)
-        val
-        (str val)))))
+      (str/join "\n" (map (fn [x] (to-string x depth)) val))
+      (str (pad depth) "\"" val "\""))))
 
-(to-string (tag :tank 
-                "t34"
-                (tag :br)
-                "abrams"
-                (tag :test "1")))
+(repeat-str " x " 1 )
+(str/join " " (repeat 2 " x "))
+
+(println (to-string
+          (tag :br 
+               "t34" 
+               (tag :div
+                    (tag :br
+                         (tag :div))
+                    "AA"
+                    (tag :br)) 
+               "abrams" 
+               (tag :div "1")) 0))
 
 
+(print (to-string (list
+            (tag :br)
+            (tag :div "a"))))
 
 
 
