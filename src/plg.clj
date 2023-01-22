@@ -3,7 +3,8 @@
          '[clojure.edn :as edn]
          '[src.lang :refer :all]
          '[src.utils :refer :all]
-         '[src.samples :refer :all])
+         '[src.samples :refer :all]
+         '[src.schema :refer :all])
 
 
 
@@ -81,10 +82,15 @@
 (find-query-abs use-list-sample (list {:tag "*" :id 2}))
 (find-query-abs use-list-sample (list {:tag "*"} {:tag "*" :id 0}))
 
+(find-query-abs use-list-sample (list {:tag "br"}))
 
 
 
 (find-query-rel use-list-sample (list {:tag "student" :id 1}))
+(find-query-rel use-list-sample (list {:tag "div"}))
+(find-query-rel use-list-sample (list {:tag "br"}))
+
+
 (find-all-query use-list-sample {:tag "student" :rel true})
 (find-all-query use-list-sample {:tag "student"})
 
@@ -97,35 +103,6 @@
 
 (str/includes? "asd" "d")
 
-(def use-schema
-  (tag :root
-       (tag :tank
-            (tag :t34 "*")
-            (tag :abrams))
-       (tag :plane)))
-
-(defn validate-tag-name [tag node]
-  (= (tag-name tag) (tag-name node)))
-
-(validate-tag-name (tag :s) (tag "s"))
-
-(defn schema-validation-impl [tags schema]
-  (let [first-tag (first tags) first-node (first schema)]
-    (if (and (empty? tags) (empty? schema))
-      true 
-      (and
-       (and 
-        (validate-tag-name first-tag first-node)
-        (if (value-is first-node "*")
-          true
-          (schema-validation-impl
-           (list-tag-args (list first-tag))
-           (list-tag-args (list first-node)))))
-       (schema-validation-impl (rest tags) (rest schema))))))
-
-(defn validate-by-schema [tags schema]
-  (let [tag-list (turn-into-list tags) schema-list (turn-into-list schema)]
-    (schema-validation-impl tag-list schema-list)))
 
 (validate-by-schema (tag :root
                          (tag :tank
@@ -157,6 +134,7 @@
 (find-all use-list-sample "~student[%name1]")
 (find-all use-list-sample "*/*[0]")
 (find-all use-list-sample "div")
+(find-all use-list-sample "br")
 
 
 

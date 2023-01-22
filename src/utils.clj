@@ -1,5 +1,6 @@
 (ns src.utils)
 (require '[src.lang :refer :all]
+         '[src.samples :refer :all]
          '[clojure.edn :as edn]
          '[clojure.string :as str])
 
@@ -127,15 +128,14 @@
     results ;; looked over all tags - nothing to look for
     (let [matches (query-matching-expressions tags (first q))
           filtered (process-filters matches (first q))]
-      (if (empty? filtered)
-        (concat results (find-query-rel-impl (list-tag-args tags) q results))
-        (if (and (not-empty filtered) (<= (count q) 1))
-          (concat results filtered)
-          (concat results (reduce
-                           (fn [acc, x]
-                             (concat acc (find-query-rel-impl (list-tag-args (list x)) (rest q) [])))
-                           []
-                           filtered)))))))
+      (concat results
+              filtered
+              (find-query-rel-impl (list-tag-args tags) q results) 
+              (reduce
+               (fn [acc, x]
+                 (concat acc (find-query-rel-impl (list-tag-args (list x)) (rest q) [])))
+               []
+               filtered)))))
 
 (defn find-query-rel [expr query]
   {:doc "Find elements by query with relative path;
@@ -143,6 +143,10 @@
          @query - query or list of queries"}
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query) results []]
     (find-query-rel-impl list-exprs queries results)))
+
+(find-query-rel use-list-sample {:tag "br"})
+
+(find-query-rel use-list-sample {:tag "br" :is "br2"})
 
 (defn find-all-query [expr query]
   (let [q-list (turn-into-list query) relative ((first q-list) :rel)]
