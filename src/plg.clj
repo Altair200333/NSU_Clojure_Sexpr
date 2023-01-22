@@ -147,17 +147,10 @@
   {:doc "Check if expr is tag"}
   (= (first expr) ::tag-for))
 
-
-(defn tag-find [query]
-  {:doc "Create named tag with children"}
-  (list ::tag-find query))
-
-(defn tag-find? [expr]
-  {:doc "Check if expr is tag"}
-  (= (first expr) ::tag-find))
+(defn tag-query [expr]
+  (second expr))
 
 (tag-for? (tag-for "div"))
-(tag-find? (tag-find "br"))
 
 (def nes (list 1 (list 1 2 3)))
 
@@ -219,12 +212,32 @@
             (tag :br)
             (tag :div "a"))))
 
-(defn transform [vals schema]
-  )
+(defn transform-impl [schema val depth]
+  (if (tag? schema)
+    (let [name (subs (str (tag-name schema)) 1) values (tag-args schema)]
+      (if (empty? values)
+        (str (pad depth) "<" name "/>")
+        (str (pad depth) "<" name ">\n"
+             (transform-impl values val (inc depth)) "\n"
+             (pad depth) "</" name ">"))) 
+    (if (tag-for? schema)
+      (transform-impl (find-all val (tag-query schema)) val depth)
+      (if (seq? schema)
+        (str/join "\n" (map (fn [x] (transform-impl x val depth)) schema))
+        (str (pad depth) "\"" schema "\"")))))
 
+(def use-tr-schema 
+  (tag-for "*/*"))
 
+(println (transform-impl use-tr-schema use-list-sample 0))
 
-
+(println (transform-impl 
+          (tag :root
+               (tag :scholar
+                    (tag-for "~student"))
+               (tag :div
+                    (tag-for "~br"))) 
+          use-list-sample 0))
 
 
 
