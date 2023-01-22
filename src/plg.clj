@@ -4,7 +4,8 @@
          '[src.lang :refer :all]
          '[src.utils :refer :all]
          '[src.samples :refer :all]
-         '[src.schema :refer :all])
+         '[src.schema :refer :all]
+         '[src.spath :refer :all])
 
 
 
@@ -139,52 +140,9 @@
 (find-one use-list-sample "br")
 (find-one use-list-sample "hr")
 
-(defn tag-for [query & options]
-  {:doc "Create named tag with children"}
-  (if options
-    (list ::tag-for query options)
-    (list ::tag-for query)))
-
-(defn tag-for? [expr]
-  {:doc "Check if expr is tag"}
-  (= (first expr) ::tag-for))
-
-(defn tag-query [expr]
-  (second expr))
 
 (tag-for? (tag-for "div"))
 
-(def nes (list 1 (list 1 2 3)))
-
-(defn strf [s]
-  (if (seq? s)
-    (str
-     "<" (str/join " - " (map (fn [x] (strf x)) s)) ">")
-    (str s)))
-
-(strf nes)
-
-(defn repeat-str [x n]
-  (str/join "" (repeat n x)))
-
-(defn pad [depth]
-  (repeat-str "  " (max depth 0)))
-
-(defn to-string-impl [val depth]
-  {:doc "Convert given tags into html string"}
-  (if (tag? val)
-    (let [name (subs (str (tag-name val)) 1) values (tag-args val)]
-      (if (empty? values)
-        (str (pad depth) "<" name "/>")
-        (str (pad depth) "<" name ">\n"
-             (to-string-impl values (inc depth)) "\n"
-             (pad depth) "</" name ">")))
-    (if (seq? val)
-      (str/join "\n" (map (fn [x] (to-string-impl x depth)) val))
-      (str (pad depth) "\"" val "\""))))
-
-(defn to-string [val]
-  (to-string-impl val 0))
 
 (repeat-str " x " 1 )
 (str/join " " (repeat 2 " x "))
@@ -214,48 +172,17 @@
             (tag :br)
             (tag :div "a"))))
 
-(defn get-options [val]
-  (let [len (count val)]
-    (if (= len 3) 
-       (let [opts (first (last val))] 
-         (if opts
-           opts
-           {}))
-       {})))
-
 (get-options (tag-for "div" {:val "dsad"}))
 (get-options (tag-for "div" {}))
 (get-options (tag-for "div"))
 
-(defn process-selector [schema tags]
-  (let [values ((get-options schema) :values)]
-    (if values
-      (list-tag-args tags)
-      tags)))
-
 (process-selector (tag-for "*" {:values false}) use-list-sample)
 (process-selector (tag-for "*" {:values true}) use-list-sample)
-
-(defn transform-impl [schema val depth]
-  (if (tag? schema)
-    (let [name (subs (str (tag-name schema)) 1) values (tag-args schema)]
-      (if (empty? values)
-        (str (pad depth) "<" name "/>")
-        (str (pad depth) "<" name ">\n"
-             (transform-impl values val (inc depth)) "\n"
-             (pad depth) "</" name ">"))) 
-    (if (tag-for? schema)
-      (transform-impl 
-       (process-selector schema (find-all val (tag-query schema))) 
-       val depth)
-      (if (seq? schema)
-        (str/join "\n" (map (fn [x] (transform-impl x val depth)) schema))
-        (str (pad depth) "\"" schema "\"")))))
 
 (def use-tr-schema 
   (tag-for "*/*"))
 
-(println (transform-impl use-tr-schema use-list-sample 0))
+(println (transform use-tr-schema use-list-sample))
 
 (println (transform-impl 
           (tag :root
