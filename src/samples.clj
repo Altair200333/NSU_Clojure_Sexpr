@@ -36,9 +36,9 @@
   (list
    (tag :students
         (tag :student "name1")
-        (tag :student "name2")
-   (tag :div
-        (tag :br "br")))))
+        (tag :student "name2") 
+        (tag :div 
+             (tag :br "br")))))
 
 ;; queries 
 

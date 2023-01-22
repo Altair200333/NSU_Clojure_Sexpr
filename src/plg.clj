@@ -139,9 +139,11 @@
 (find-one use-list-sample "br")
 (find-one use-list-sample "hr")
 
-(defn tag-for [query]
+(defn tag-for [query & options]
   {:doc "Create named tag with children"}
-  (list ::tag-for query))
+  (if options
+    (list ::tag-for query options)
+    (list ::tag-for query)))
 
 (defn tag-for? [expr]
   {:doc "Check if expr is tag"}
@@ -212,6 +214,28 @@
             (tag :br)
             (tag :div "a"))))
 
+(defn get-options [val]
+  (let [len (count val)]
+    (if (= len 3) 
+       (let [opts (first (last val))] 
+         (if opts
+           opts
+           {}))
+       {})))
+
+(get-options (tag-for "div" {:val "dsad"}))
+(get-options (tag-for "div" {}))
+(get-options (tag-for "div"))
+
+(defn process-selector [schema tags]
+  (let [values ((get-options schema) :values)]
+    (if values
+      (list-tag-args tags)
+      tags)))
+
+(process-selector (tag-for "*" {:values false}) use-list-sample)
+(process-selector (tag-for "*" {:values true}) use-list-sample)
+
 (defn transform-impl [schema val depth]
   (if (tag? schema)
     (let [name (subs (str (tag-name schema)) 1) values (tag-args schema)]
@@ -221,7 +245,9 @@
              (transform-impl values val (inc depth)) "\n"
              (pad depth) "</" name ">"))) 
     (if (tag-for? schema)
-      (transform-impl (find-all val (tag-query schema)) val depth)
+      (transform-impl 
+       (process-selector schema (find-all val (tag-query schema))) 
+       val depth)
       (if (seq? schema)
         (str/join "\n" (map (fn [x] (transform-impl x val depth)) schema))
         (str (pad depth) "\"" schema "\"")))))
@@ -234,7 +260,7 @@
 (println (transform-impl 
           (tag :root
                (tag :scholar
-                    (tag-for "~student"))
+                    (tag-for "~students" {:values true}))
                (tag :div
                     (tag-for "~br"))) 
           use-list-sample 0))
