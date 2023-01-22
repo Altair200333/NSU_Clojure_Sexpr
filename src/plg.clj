@@ -223,7 +223,6 @@
             (tag :abrams))
        (tag :plane)))
 
-
 (defn validate-tag-name [tag node]
   (= (tag-name tag) (tag-name node)))
 
@@ -250,15 +249,21 @@
 (validate-by-schema (tag :root
                          (tag :tank
                               (tag :t34 
-                                   (tag :speed))
+                                   (tag :crew))
                               (tag :abrams))
                          (tag :plane))
                     use-schema)
 
+(defn transform-into-dict [s]
+  {:tag s})
 
+(defn query-from-string [s]
+  (map 
+   (fn [x] (transform-into-dict x))
+   (str/split s "/")))
 
-
-
+(query-from-string "div/br")
+(str/split "s/da/d" "/")
 
 
 
