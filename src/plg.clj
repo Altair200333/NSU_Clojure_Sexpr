@@ -184,13 +184,13 @@
 
 (println (transform use-tr-schema use-list-sample))
 
-(println (transform-impl 
+(println (transform 
           (tag :root
                (tag :scholar
                     (tag-for "~students" {:values true}))
                (tag :div
                     (tag-for "~br"))) 
-          use-list-sample 0))
+          use-list-sample))
 
 
 

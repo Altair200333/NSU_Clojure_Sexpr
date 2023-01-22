@@ -190,10 +190,25 @@
    (fn [x] (transform-into-dict x))
    (str/split s "/")))
 
+
+;; query format
+;; <tag-name>/<tag-name>[options]/.../
+;; * - any tag
+;; valid options are:
+;; 1. [=text] - match exact text occurence
+;; 2. [%text] - match one of values being equal to text
+;; 3. [id]    - match element by index
+;; ~ - relative search (first tag only)
+;; examples:
+;; div/br[0] - get first br after every div
+;; students/student[=bob] - search for student named bob
+;; planets/countries[%india] - search for planets that have counry called india
+;; ~div/div - find all nested div's in hierarchy
 (defn find-all [expr q]
+  {:doc "Find all tags matching query @q"}
   (find-all-query expr (query-from-string q)))
 
-(find-all use-list-sample "~div")
-
 (defn find-one [expr q]
+  {:doc "Find first tag matching query @q
+         nil if nothing found"}
   (first (find-all expr q)))
