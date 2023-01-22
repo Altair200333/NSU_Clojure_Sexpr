@@ -26,6 +26,14 @@
                 (list)
                 tags)))
 
+(defn list-tag-args-agnostic [tags]
+  {:doc "Get list of children from @tags with all types"}
+  (reduce (fn [acc, x] 
+            (concat acc (tag-args x))) 
+          (list) 
+          tags))
+
+
 (defn values-contain [expr value]
   {:doc "Check if arguments of expr contain value"}
   (let [values (tag-args expr)]

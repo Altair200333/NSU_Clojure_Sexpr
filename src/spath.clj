@@ -62,9 +62,10 @@
   {:doc "Filter @tags children with chema tag"}
   (let [values ((get-options schema) :values)]
     (if values
-      (list-tag-args tags)
+      (list-tag-args-agnostic tags)
       tags)))
 
+(process-selector (tag-for "*" {:values true}) use-list-sample)
 
 (defn transform-impl [schema val depth]
   (if (tag? schema)

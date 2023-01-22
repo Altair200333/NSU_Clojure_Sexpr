@@ -137,6 +137,8 @@
 (find-all use-list-sample "div")
 (find-all use-list-sample "br")
 
+(list-tag-args-agnostic (find-all use-list-sample "~student"))
+
 (find-one use-list-sample "br")
 (find-one use-list-sample "hr")
 
@@ -177,7 +179,7 @@
 (get-options (tag-for "div"))
 
 (process-selector (tag-for "*" {:values false}) use-list-sample)
-(process-selector (tag-for "*" {:values true}) use-list-sample)
+(process-selector (tag-for "student" {:values true}) use-list-sample)
 
 (def use-tr-schema 
   (tag-for "*/*"))
@@ -187,7 +189,7 @@
 (println (transform 
           (tag :root
                (tag :scholar
-                    (tag-for "~students" {:values true}))
+                    (tag-for "~student" {:values true}))
                (tag :div
                     (tag-for "~br"))) 
           use-list-sample))
