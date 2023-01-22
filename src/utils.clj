@@ -124,18 +124,20 @@
 
 
 (defn find-query-rel-impl [tags q results]
-  (if (empty? tags)
+  (if (or (empty? tags) (empty? q))
     results ;; looked over all tags - nothing to look for
     (let [matches (query-matching-expressions tags (first q))
           filtered (process-filters matches (first q))]
       (concat results
               filtered
-              (find-query-rel-impl (list-tag-args tags) q results) 
+              (find-query-rel-impl (list-tag-args tags) q results)
               (reduce
                (fn [acc, x]
                  (concat acc (find-query-rel-impl (list-tag-args (list x)) (rest q) [])))
                []
                filtered)))))
+
+(find-query-rel-impl use-list-sample (list {:tag "div"}) [])
 
 (defn find-query-rel [expr query]
   {:doc "Find elements by query with relative path;
@@ -144,7 +146,7 @@
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query) results []]
     (find-query-rel-impl list-exprs queries results)))
 
-(find-query-rel use-list-sample {:tag "br"})
+(find-query-rel use-list-sample {:tag "div"})
 
 (find-query-rel use-list-sample {:tag "br" :is "br2"})
 
@@ -169,7 +171,7 @@
         (let [num (edn/read-string content) is-number (number? num)]
           (if is-number
             (list name :id num)
-            (list name :none nil)))))))
+            (list name :none "")))))))
 
 (defn get-rel-name [s is-rel]
   (if is-rel
@@ -190,6 +192,8 @@
 
 (defn find-all [expr q]
   (find-all-query expr (query-from-string q)))
+
+(find-all use-list-sample "~div")
 
 (defn find-one [expr q]
   (first (find-all expr q)))

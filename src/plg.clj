@@ -175,18 +175,21 @@
 (defn pad [depth]
   (repeat-str "  " (max depth 0)))
 
-(defn to-string [val depth]
+(defn to-string-impl [val depth]
   {:doc "Convert given tags into html string"}
   (if (tag? val)
     (let [name (subs (str (tag-name val)) 1) values (tag-args val)]
       (if (empty? values)
         (str (pad depth) "<" name "/>")
         (str (pad depth) "<" name ">\n"
-             (to-string values (inc depth)) "\n"
+             (to-string-impl values (inc depth)) "\n"
              (pad depth) "</" name ">")))
     (if (seq? val)
-      (str/join "\n" (map (fn [x] (to-string x depth)) val))
+      (str/join "\n" (map (fn [x] (to-string-impl x depth)) val))
       (str (pad depth) "\"" val "\""))))
+
+(defn to-string [val]
+  (to-string-impl val 0))
 
 (repeat-str " x " 1 )
 (str/join " " (repeat 2 " x "))
@@ -200,14 +203,24 @@
                     "AA"
                     (tag :br)) 
                "abrams" 
-               (tag :div "1")) 0))
+               (tag :div "1"))))
 
+(find-all (tag :br
+               "t34"
+               (tag :div
+                    (tag :br
+                         (tag :div))
+                    "AA"
+                    (tag :br))
+               "abrams"
+               (tag :div "1")) "~div")
 
-(print (to-string (list
+(println (to-string (list
             (tag :br)
             (tag :div "a"))))
 
-
+(defn transform [vals schema]
+  )
 
 
 
