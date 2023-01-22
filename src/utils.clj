@@ -190,3 +190,6 @@
 
 (defn find-all [expr q]
   (find-all-query expr (query-from-string q)))
+
+(defn find-one [expr q]
+  (first (find-all expr q)))

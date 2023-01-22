@@ -136,20 +136,42 @@
 (find-all use-list-sample "div")
 (find-all use-list-sample "br")
 
+(find-one use-list-sample "br")
+(find-one use-list-sample "hr")
 
+(defn tag-for [query]
+  {:doc "Create named tag with children"}
+  (list ::tag-for query))
 
+(tag-for "div")
 
+(def nes (list 1 (list 1 2 3)))
 
+(defn strf [s]
+  (if (seq? s)
+    (str
+     "<" (str/join " - " (map (fn [x] (strf x)) s)) ">")
+    (str s)))
 
+(strf nes)
 
+(defn to-string [val]
+  (if (tag? val)
+    (let [name (subs (str (tag-name val)) 1) values (tag-args val)]
+      (if (empty? values)
+        (str "<" name "/>")
+        (str "<" name ">" (to-string values) "</" name ">"))) 
+    (if (seq? val)
+      (str/join "\n" (map (fn [x] (to-string x)) val))
+      (if (string? val)
+        val
+        (str val)))))
 
-
-
-
-
-
-
-
+(to-string (tag :tank 
+                "t34"
+                (tag :br)
+                "abrams"
+                (tag :test "1")))
 
 
 
