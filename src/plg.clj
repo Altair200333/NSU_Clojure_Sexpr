@@ -254,21 +254,75 @@
                          (tag :plane))
                     use-schema)
 
+(defn get-name-and-content [s]
+  (let [matches (re-find #"(.*)\[(.*)\]" s)]
+    (if (= (count matches) 3)
+      (list (second matches) (nth matches 2))
+      (list s ""))))
+
+(get-name-and-content "div[=text]")
+(get-name-and-content "div")
+
+(defn get-q-params [s]
+  (let [res (get-name-and-content s) name (first res) content (second res)]
+    (if (= (first content) "=")
+      (list name :is (subs content 1))
+      (if (= (first content) "%")
+        (list name :contains (subs content 1))
+        (let [num (edn/read-string content) is-number (number? num)]
+          (if is-number
+            (list name :id num)
+            (list name :none nil)))))))
+
+(get-q-params "div[=text]")
+(get-q-params "div[%text]")
+(get-q-params "div[1]")
+(get-q-params "div")
+
+(js/parseInt "5")
+(number? (edn/read-string "23"))
+(if (Integer/parseInt "sd") true false)
+
+(defn get-rel-name [s is-rel]
+  (if is-rel
+    (subs s 1)
+    s))
+
 (defn transform-into-dict [s]
-  {:tag s})
+  (let [is-rel (= "~" (first s))
+        text (get-rel-name s is-rel)
+        params (get-q-params text)
+        name (nth params 0) opts-key (nth params 1) opts-val (nth params 2)]
+   {:tag name (keyword opts-key) opts-val :rel is-rel}))
+
+(transform-into-dict "~div[=text]")
+(transform-into-dict "div[=text]")
+(transform-into-dict "~div")
+(transform-into-dict "div")
 
 (defn query-from-string [s]
   (map 
    (fn [x] (transform-into-dict x))
    (str/split s "/")))
 
-(query-from-string "div/br")
+(defn find-all [expr q]
+  (find-all-query expr (query-from-string q)))
+
+(find-all use-list-sample "students/*")
+(find-all use-list-sample "~student")
+(find-all use-list-sample "~student[=name1]")
+(find-all use-list-sample "div")
+
+(query-from-string "div")
+(query-from-string "~div[=t]/br")
+
 (str/split "s/da/d" "/")
 
+(re-find #"(.*)\[(.*)\]" "div[=text]")
+(re-find #"(.*)\[(.*)\]" "div")
+(re-find #"\[(.*)\]" "div[]")
 
-
-
-
+({:tag "s" :rel true} :key "d")
 
 
 
