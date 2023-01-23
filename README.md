@@ -159,7 +159,7 @@ example
 
     (tag :root ;; schema object
        (tag :tank
-            (tag :t34 "*") ;; allows this tag to have number of child nodes
+            (tag :t34 "*") ;; allows this tag to have any number of child nodes
             (tag :abrams))
        (tag :plane)))
 ```
