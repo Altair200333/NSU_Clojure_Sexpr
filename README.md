@@ -1,5 +1,10 @@
-# Clojure-SExpr
- 
-Clojure project for "S expressions"-like language
+<div align="center">
+  <h1 align="center" style="color: orange">
+  Clojure S expressions
+  </h1>
+</div>
 
-rest later
+## About The Project
+"S expressions"-like language in *Clojure*
+
+## Features
