@@ -203,7 +203,7 @@
 (println (transform
           (tag :root
                (tag :scholar
-                    (tag-for "~student/div"))
+                    (tag-for "students/student"))
                (tag :div
                     (tag-for "~br")))
           use-list-sample))
