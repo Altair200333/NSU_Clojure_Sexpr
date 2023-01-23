@@ -73,7 +73,7 @@
 (first (second match-all-q))
 
 (process-filters use-students {:tag "div" :is "name1"})
-(process-filters use-students {:tag "div" :id 5})
+(process-filters use-students {:tag "div" :id 1})
 
 
 
@@ -134,9 +134,10 @@
 (find-all use-list-sample "students/*")
 (find-all use-list-sample "~student")
 (find-all use-list-sample "~student[=name1]")
-(find-all use-list-sample "~student[%name1]")
+(find-all use-list-sample "~student[%bob]")
 (find-all use-list-sample "*/*[0]")
 (find-all use-list-sample "div")
+(find-all use-list-sample "div[2]")
 (find-all use-list-sample "br")
 (find-all use-list-sample "ad")
 
@@ -196,11 +197,6 @@
                (tag :div
                     (tag-for "~br"))) 
           use-list-sample))
-
-
-
-
-
 
 
 
