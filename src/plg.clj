@@ -64,6 +64,8 @@
 (filter-by-index use-students 0)
 (filter-by-index use-students 10)
 
+(= (tag :s "s" (tag :q)) (tag :s "s" (tag :q)))
+
 (def s-filter-is {:tag "div" :is "name1"})
 (def s-filter-id {:tag "div" :id 1})
 
@@ -136,6 +138,7 @@
 (find-all use-list-sample "*/*[0]")
 (find-all use-list-sample "div")
 (find-all use-list-sample "br")
+(find-all use-list-sample "ad")
 
 (list-tag-args-agnostic (find-all use-list-sample "~student"))
 

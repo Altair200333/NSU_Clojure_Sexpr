@@ -33,6 +33,13 @@
     (is (values-contain (tag :div "x" "d") "x"))
     (is (values-contain (tag :div "x" "d") "d"))
     (is (not (values-contain (tag :div) "d")))
-    ))
+    )
+  
+  (testing "index-filter"
+    (is (= (filter-by-index use-students 0) (list (tag :student "name1"))))
+    (is (= (filter-by-index use-students 10) (list)))
+    (is (= (filter-values-contain use-students "tom") (list (tag :student "bob" "tom"))))
+    )
+  )
 
 (run-tests `test.tests)
