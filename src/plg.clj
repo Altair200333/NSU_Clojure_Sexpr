@@ -164,6 +164,8 @@
                "abrams" 
                (tag :div "1"))))
 
+(println (to-string use-list-sample))
+
 (find-all (tag :br
                "t34"
                (tag :div
@@ -198,8 +200,17 @@
                     (tag-for "~br"))) 
           use-list-sample))
 
+(println (transform
+          (tag :root
+               (tag :scholar
+                    (tag-for "~student" {:values true})))
+          use-list-sample))
 
-
+(println (transform
+          (tag :root
+               (tag :scholar
+                    (tag-for "~student")))
+          use-list-sample))
 
 
 
