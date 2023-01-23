@@ -130,6 +130,10 @@
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query) results []]
     (find-query-abs-impl list-exprs queries results)))
 
+(defn select-filtered [filtered q]
+  (if (<= (count q) 1)
+    filtered
+    (list)))
 
 (defn find-query-rel-impl [tags q results]
   (if (or (empty? tags) (empty? q))
@@ -137,7 +141,7 @@
     (let [matches (query-matching-expressions tags (first q))
           filtered (process-filters matches (first q))]
       (concat results
-              filtered
+              (select-filtered filtered q)
               (find-query-rel-impl (list-tag-args tags) q results)
               (reduce
                (fn [acc, x]
@@ -154,7 +158,8 @@
   (let [list-exprs (turn-into-list expr) queries (turn-into-list query) results []]
     (find-query-rel-impl list-exprs queries results)))
 
-(find-query-rel use-list-sample {:tag "div"})
+(find-query-rel use-list-sample (list {:tag "student"} {:tag "div"}))
+(find-query-rel use-list-sample (list {:tag "student"}))
 
 (find-query-rel use-list-sample {:tag "br" :is "br2"})
 

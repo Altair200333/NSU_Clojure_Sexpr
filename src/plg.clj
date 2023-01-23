@@ -203,6 +203,14 @@
 (println (transform
           (tag :root
                (tag :scholar
+                    (tag-for "~student/div"))
+               (tag :div
+                    (tag-for "~br")))
+          use-list-sample))
+
+(println (transform
+          (tag :root
+               (tag :scholar
                     (tag-for "~student" {:values true})))
           use-list-sample))
 

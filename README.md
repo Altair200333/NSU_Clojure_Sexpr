@@ -55,13 +55,13 @@ Optional selector applied to tag - []
 usage examples:
 
 ``` clojure
-(find-all use-list-sample "students/*")
+(find-all use-list-sample "students/*") ;; find children of students nodes
 (find-all use-list-sample "~student[%bob]")
 (find-all use-list-sample "*/*[0]")
 (find-one use-list-sample "br")
 ```
 
-`find-all` and `find-one` accept tag as well as list of tags (object does not need to have root node)
+`find-all` and `find-one` accept tag as well as list of tags (objects do not need to have root node)
 
 ## Transform
 
